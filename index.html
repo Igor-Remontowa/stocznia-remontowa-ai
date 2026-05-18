@@ -2,42 +2,41 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STOCZNIA REMONTOWA </title>
-
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
       margin: 0;
       padding: 40px;
-      background: #0f172a;
-      font-family: Arial, sans-serif;
-      color: white;
     }
 
     h1 {
       text-align: center;
-      color: #38bdf8;
       margin-bottom: 40px;
+      color: #38bdf8;
     }
 
     .container {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      max-width: 1100px;
-      margin: auto;
     }
 
     .card {
       background: #1e293b;
       border-radius: 16px;
       padding: 20px;
-      border: 1px solid #334155;
       transition: 0.2s;
+      border: 1px solid #334155;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: #38bdf8;
     }
 
@@ -63,56 +62,36 @@
     }
   </style>
 </head>
-
 <body>
-
-  <h1>🚢 STOCZNIA REMONTOWA AI</h1>
+  <div style="text-align: center; margin-bottom: 30px;">
+    <img src="logo-remontowa.jpg" alt="Remontowa Shiprepair Yard" style="max-width: 420px; width: 100%; margin-bottom: 20px;">
+    <h1>🚢 GDAŃSKA STOCZNIA REMONTOWA</h1>
+  </div>
 
   <div class="container">
-
     <div class="card">
-      <a href="https://nnd.remontowa.com.pl/keep_session.asp?redirect=https://nnd.remontowa.com.pl/index_main.aspx" target="_blank">
-        NND
-      </a>
-      <div class="description">
-        System NND Remontowa
-      </div>
+      <a href="https://nnd.remontowa.com.pl/keep_session.asp?redirect=https://nnd.remontowa.com.pl/index_main.aspx" target="_blank">NND</a>
+      <div class="description">System NND Remontowa</div>
     </div>
 
     <div class="card">
-      <a href="http://shpservertest/raporty/report/Ruchy_jednostek" target="_blank">
-        RUCHY JEDNOSTEK
-      </a>
-      <div class="description">
-        Raport ruchów jednostek
-      </div>
+      <a href="http://shpservertest/raporty/report/Ruchy_jednostek" target="_blank">RUCHY JEDNOSTEK</a>
+      <div class="description">Raport ruchów jednostek</div>
     </div>
 
     <div class="card">
-      <a href="http://shpservertest:8095/kooperacja" target="_blank">
-        SHAREPOINT
-      </a>
-      <div class="description">
-        Portal kooperacji i dokumentów
-      </div>
+      <a href="http://shpservertest:8095/kooperacja" target="_blank">SHAREPOINT</a>
+      <div class="description">Portal kooperacji i dokumentów</div>
     </div>
 
     <div class="card">
-      <a href="https://kzp.remontowa.com.pl/my.policy" target="_blank">
-        KZP
-      </a>
-      <div class="description">
-        Kasa Zapomogowo-Pożyczkowa
-      </div>
+      <a href="https://kzp.remontowa.com.pl/my.policy" target="_blank">KZP</a>
+      <div class="description">System KZP</div>
     </div>
 
     <div class="card">
-      <a href="https://chatgpt.com" target="_blank">
-        CHAT GPT
-      </a>
-      <div class="description">
-        Sztuczna inteligencja do pracy i analiz
-      </div>
+      <a href="https://chatgpt.com" target="_blank">CHAT GPT</a>
+      <div class="description">Sztuczna inteligencja do pracy i analiz</div>
     </div>
 
     <div class="card">
@@ -124,11 +103,36 @@
       </div>
     </div>
 
+    <div class="card">
+      <a href="http://shpservertest:8080/" target="_blank">
+        DYSPOZYCJE
+      </a>
+      <div class="description">
+        System dyspozycji i zarządzania
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="http://kontakty.remontowa.com.pl/" target="_blank">
+        KONTAKTY
+      </a>
+      <div class="description">
+        Wewnętrzna książka kontaktów
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://login.remontowa.com.pl/my.policy" target="_blank">
+        PORTAL PRACOWNIKA
+      </a>
+      <div class="description">
+        Logowanie i sprawy pracownicze
+      </div>
+    </div>
   </div>
 
   <footer>
     Wewnętrzny portal pracowników • STOCZNIA REMONTOWA AI
   </footer>
-
 </body>
 </html>
