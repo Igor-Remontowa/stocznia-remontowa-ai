@@ -3,95 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STOCZNIA REMONTOWA </title>
+
+  <title>STOCZNIA REMONTOWA AI</title>
+
   <style>
+
     body {
       font-family: Arial, sans-serif;
       background: #0f172a;
       color: white;
       margin: 0;
       padding: 40px;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       color: #38bdf8;
+      font-size: 52px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .header img {
+      max-width: 420px;
+      width: 100%;
+      margin-bottom: 25px;
     }
 
     .container {
       max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
     .card {
       background: #1e293b;
-      border-radius: 16px;
-      padding: 20px;
-      transition: 0.2s;
+      border-radius: 18px;
+      padding: 22px;
       border: 1px solid #334155;
+      transition: all 0.25s ease;
+      min-height: 120px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
     }
 
     .card a {
       color: white;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .description {
       color: #cbd5e1;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 80px;
       color: #94a3b8;
       font-size: 13px;
     }
+
+    .author {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+
+      body {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .card a {
+        font-size: 20px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
-  <div style="text-align: center; margin-bottom: 30px;">
-    <img src="logo.jpg" alt="Remontowa Shiprepair Yard" style="max-width: 420px; width: 100%; margin-bottom: 20px;">
+
+  <div class="header">
+
+    <img src="logo.jpg" alt="Remontowa Shiprepair Yard">
+
     <h1>🚢 GDAŃSKA STOCZNIA REMONTOWA</h1>
+
   </div>
 
   <div class="container">
+
     <div class="card">
-      <a href="https://nnd.remontowa.com.pl" target="_blank">NND</a>
-      <div class="description">System NND Remontowa</div>
+      <a href="https://nnd.remontowa.com.pl" target="_blank">
+        NND
+      </a>
+      <div class="description">
+        System NND Remontowa
+      </div>
     </div>
 
     <div class="card">
-      <a href="http://shpservertest/raporty/report/Ruchy_jednostek" target="_blank">RUCHY JEDNOSTEK</a>
-      <div class="description">Raport ruchów jednostek</div>
+      <a href="http://shpservertest/raporty/report/Ruchy_jednostek" target="_blank">
+        RUCHY JEDNOSTEK
+      </a>
+      <div class="description">
+        Raport ruchów jednostek
+      </div>
     </div>
 
     <div class="card">
-      <a href="http://shpservertest:8095/kooperacja" target="_blank">SHAREPOINT</a>
-      <div class="description">Portal kooperacji i dokumentów</div>
+      <a href="http://shpservertest:8095/kooperacja" target="_blank">
+        SHAREPOINT
+      </a>
+      <div class="description">
+        Portal kooperacji i dokumentów
+      </div>
     </div>
 
     <div class="card">
-      <a href="https://kzp.remontowa.com.pl" target="_blank">KZP</a>
-      <div class="description">System KZP</div>
+      <a href="https://kzp.remontowa.com.pl" target="_blank">
+        KZP
+      </a>
+      <div class="description">
+        System KZP
+      </div>
     </div>
 
     <div class="card">
-      <a href="https://chatgpt.com" target="_blank">CHAT GPT</a>
-      <div class="description">Sztuczna inteligencja do pracy i analiz</div>
+      <a href="https://chatgpt.com" target="_blank">
+        CHAT GPT
+      </a>
+      <div class="description">
+        Sztuczna inteligencja do pracy i analiz
+      </div>
     </div>
 
     <div class="card">
@@ -129,43 +202,29 @@
         Logowanie i sprawy pracownicze
       </div>
     </div>
-    
- <div class="card">
-  <a href="firmy.html" target="_blank">
-    FIRMY KOOPERACYJNE
-  </a>
-  <div class="description">
-    Wyszukiwarka firm i usług
-  </div>
-</div>
-    
 
-<footer style="
-  margin-top: 800px;
-  text-align: center;
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #94a3b8;
-  font-size: 13px;
-">
-">
+    <div class="card">
+      <a href="firmy.html" target="_blank">
+        FIRMY KOOPERACYJNE
+      </a>
+      <div class="description">
+        Wyszukiwarka firm i usług
+      </div>
+    </div>
 
-  <div>
-    Wewnętrzny portal pracowników • STOCZNIA REMONTOWA AI
   </div>
 
-  <div style="
-    margin-top: 8px;
-    font-size: 11px;
-    color: #64748b;
-  ">
-    Wykonanie: Igor Kozłowski
-  </div>
+  <footer>
 
-</footer>
-</div>
+    <div>
+      Wewnętrzny portal pracowników • STOCZNIA REMONTOWA AI
+    </div>
+
+    <div class="author">
+      Wykonanie: Igor Kozłowski
+    </div>
+
+  </footer>
+
 </body>
 </html>
