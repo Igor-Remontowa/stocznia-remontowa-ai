@@ -2,107 +2,113 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>STOCZNIA REMONTOWA AI</title>
 
   <style>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      margin: 0;
-      padding: 40px;
-      min-height: 100vh;
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 50px;
-      color: #38bdf8;
-      font-size: 52px;
+    body{
+      margin:0;
+      padding:40px;
+      background:#0b1430;
+      color:white;
+      font-family:Arial,sans-serif;
+      min-height:100vh;
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 50px;
+    .header{
+      text-align:center;
+      margin-bottom:50px;
     }
 
-    .header img {
-      max-width: 420px;
-      width: 100%;
-      margin-bottom: 25px;
+    .header img{
+      width:100%;
+      max-width:420px;
+      margin-bottom:25px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+    h1{
+      margin:0;
+      color:#38bdf8;
+      font-size:52px;
+      font-weight:700;
     }
 
-    .card {
-      background: #1e293b;
-      border-radius: 18px;
-      padding: 22px;
-      border: 1px solid #334155;
-      transition: all 0.25s ease;
-      min-height: 120px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #38bdf8;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+    .card{
+      background:#1e293b;
+      border:1px solid #334155;
+      border-radius:18px;
+      padding:24px;
+      min-height:130px;
+      transition:0.25s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .card a {
-      color: white;
-      text-decoration: none;
-      font-size: 24px;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 12px;
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#38bdf8;
+      box-shadow:0 0 20px rgba(56,189,248,0.15);
     }
 
-    .description {
-      color: #cbd5e1;
-      font-size: 14px;
-      line-height: 1.5;
+    .card a{
+      color:white;
+      text-decoration:none;
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:12px;
+      display:block;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 80px;
-      color: #94a3b8;
-      font-size: 13px;
+    .description{
+      color:#cbd5e1;
+      font-size:15px;
+      line-height:1.5;
     }
 
-    .author {
-      margin-top: 8px;
-      font-size: 11px;
-      color: #64748b;
+    footer{
+      text-align:center;
+      margin-top:80px;
+      color:#94a3b8;
+      font-size:13px;
     }
 
-    @media (max-width: 768px) {
+    .author{
+      margin-top:8px;
+      font-size:11px;
+      color:#64748b;
+    }
 
-      body {
-        padding: 25px;
+    @media(max-width:768px){
+
+      body{
+        padding:25px;
       }
 
-      h1 {
-        font-size: 36px;
+      h1{
+        font-size:36px;
       }
 
-      .card a {
-        font-size: 20px;
+      .card{
+        min-height:115px;
+      }
+
+      .card a{
+        font-size:22px;
       }
 
     }
@@ -126,6 +132,7 @@
       <a href="https://nnd.remontowa.com.pl" target="_blank">
         NND
       </a>
+
       <div class="description">
         System NND Remontowa
       </div>
@@ -135,6 +142,7 @@
       <a href="http://shpservertest/raporty/report/Ruchy_jednostek" target="_blank">
         RUCHY JEDNOSTEK
       </a>
+
       <div class="description">
         Raport ruchów jednostek
       </div>
@@ -144,6 +152,7 @@
       <a href="http://shpservertest:8095/kooperacja" target="_blank">
         SHAREPOINT
       </a>
+
       <div class="description">
         Portal kooperacji i dokumentów
       </div>
@@ -153,6 +162,7 @@
       <a href="https://kzp.remontowa.com.pl" target="_blank">
         KZP
       </a>
+
       <div class="description">
         System KZP
       </div>
@@ -162,6 +172,7 @@
       <a href="https://chatgpt.com" target="_blank">
         CHAT GPT
       </a>
+
       <div class="description">
         Sztuczna inteligencja do pracy i analiz
       </div>
@@ -171,6 +182,7 @@
       <a href="https://gemini.google.com" target="_blank">
         GEMINI
       </a>
+
       <div class="description">
         AI Google do wyszukiwania i pomocy
       </div>
@@ -180,6 +192,7 @@
       <a href="http://shpservertest:8080/" target="_blank">
         DYSPOZYCJE
       </a>
+
       <div class="description">
         System dyspozycji i zarządzania
       </div>
@@ -189,6 +202,7 @@
       <a href="http://kontakty.remontowa.com.pl/" target="_blank">
         KONTAKTY
       </a>
+
       <div class="description">
         Wewnętrzna książka kontaktów
       </div>
@@ -198,6 +212,7 @@
       <a href="https://login.remontowa.com.pl/my.policy" target="_blank">
         PORTAL PRACOWNIKA
       </a>
+
       <div class="description">
         Logowanie i sprawy pracownicze
       </div>
@@ -207,6 +222,7 @@
       <a href="firmy.html" target="_blank">
         FIRMY KOOPERACYJNE
       </a>
+
       <div class="description">
         Wyszukiwarka firm i usług
       </div>
