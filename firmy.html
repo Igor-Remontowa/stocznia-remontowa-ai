@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>FIRMY KOOPERACYJNE</title>
 
   <style>
@@ -19,95 +18,69 @@
     h1{
       text-align:center;
       color:#38bdf8;
-      margin-bottom:30px;
+      margin-bottom:40px;
+      font-size:48px;
     }
 
     .search-container{
-      max-width:900px;
+      max-width:1000px;
       margin:auto;
-      margin-bottom:30px;
+      margin-bottom:40px;
     }
 
     input{
       width:100%;
-      padding:18px;
+      padding:22px;
       border:none;
-      border-radius:14px;
+      border-radius:18px;
       background:#1e293b;
       color:white;
-      font-size:16px;
+      font-size:20px;
       outline:none;
       border:1px solid #334155;
+      box-sizing:border-box;
     }
 
     input:focus{
       border-color:#38bdf8;
     }
 
-    .filters{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      margin-bottom:30px;
-      flex-wrap:wrap;
-    }
-
-    button{
-      background:#1e293b;
-      color:white;
-      border:none;
-      padding:10px 18px;
-      border-radius:10px;
-      cursor:pointer;
-      border:1px solid #334155;
-      transition:0.2s;
-    }
-
-    button:hover{
-      border-color:#38bdf8;
-    }
-
-    .container{
+    .results{
       max-width:1200px;
       margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      display:flex;
+      flex-direction:column;
       gap:20px;
     }
 
     .card{
       background:#1e293b;
-      border-radius:16px;
-      padding:20px;
+      border-radius:18px;
+      padding:25px;
       border:1px solid #334155;
-      transition:0.2s;
-    }
-
-    .card:hover{
-      transform:translateY(-4px);
-      border-color:#38bdf8;
+      display:none;
     }
 
     .company{
-      font-size:20px;
-      font-weight:bold;
-      margin-bottom:15px;
       color:#38bdf8;
+      font-size:28px;
+      font-weight:bold;
+      margin-bottom:20px;
     }
 
     .section{
-      margin-bottom:10px;
+      margin-bottom:15px;
     }
 
     .label{
       color:#94a3b8;
       font-size:13px;
-      margin-bottom:3px;
+      margin-bottom:5px;
     }
 
     .value{
-      font-size:14px;
-      line-height:1.5;
+      font-size:16px;
+      line-height:1.6;
     }
 
     .tag{
@@ -115,14 +88,21 @@
       background:#0f172a;
       border:1px solid #334155;
       border-radius:8px;
-      padding:4px 8px;
+      padding:5px 10px;
       margin:4px;
       font-size:12px;
     }
 
+    .empty{
+      text-align:center;
+      color:#64748b;
+      margin-top:80px;
+      font-size:18px;
+    }
+
     footer{
       text-align:center;
-      margin-top:40px;
+      margin-top:50px;
       color:#64748b;
       font-size:12px;
     }
@@ -135,24 +115,21 @@
   <h1>🚢 FIRMY KOOPERACYJNE</h1>
 
   <div class="search-container">
-    <input 
-      type="text" 
-      id="searchInput" 
-      placeholder="Wpisz nazwę firmy, usługę, specjalizację..."
-      onkeyup="searchCompanies()"
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Wpisz nazwę firmy, usługę lub specjalizację..."
+      onkeyup="searchCompanies(event)"
     >
   </div>
 
-  <div class="filters">
-    <button onclick="filterCompanies('all')">Wszystkie</button>
-    <button onclick="filterCompanies('polskie')">Polskie</button>
-    <button onclick="filterCompanies('zagraniczne')">Zagraniczne</button>
-    <button onclick="filterCompanies('serwis')">Serwisy</button>
+  <div class="empty" id="emptyMessage">
+    Wpisz frazę aby rozpocząć wyszukiwanie
   </div>
 
-  <div class="container" id="companiesContainer">
+  <div class="results">
 
-    <div class="card company-card polskie">
+    <div class="card company-card">
 
       <div class="company">
         MARINE TECH
@@ -161,7 +138,7 @@
       <div class="section">
         <div class="label">Zakres prac</div>
         <div class="value">
-          Spawanie TIG, rurociągi, aluminium
+          Spawanie TIG, ślusarka, rurociągi, aluminium
         </div>
       </div>
 
@@ -190,6 +167,7 @@
         <div class="label">Tagi</div>
 
         <span class="tag">spawanie</span>
+        <span class="tag">ślusarka</span>
         <span class="tag">TIG</span>
         <span class="tag">aluminium</span>
         <span class="tag">rurociągi</span>
@@ -206,37 +184,32 @@
 
   <script>
 
-    function searchCompanies() {
+    function searchCompanies(event){
 
-      let input = document.getElementById('searchInput').value.toLowerCase();
+      let input = document.getElementById("searchInput").value.toLowerCase();
 
-      let cards = document.getElementsByClassName('company-card');
+      let cards = document.getElementsByClassName("company-card");
 
-      for (let i = 0; i < cards.length; i++) {
+      let emptyMessage = document.getElementById("emptyMessage");
 
-        let text = cards[i].innerText.toLowerCase();
+      if(input.trim() === ""){
 
-        if (text.includes(input)) {
-          cards[i].style.display = "block";
-        } else {
+        emptyMessage.style.display = "block";
+
+        for(let i = 0; i < cards.length; i++){
           cards[i].style.display = "none";
         }
 
+        return;
       }
 
-    }
-
-    function filterCompanies(type){
-
-      let cards = document.getElementsByClassName('company-card');
+      emptyMessage.style.display = "none";
 
       for(let i = 0; i < cards.length; i++){
 
-        if(type === 'all'){
-          cards[i].style.display = "block";
-        }
+        let text = cards[i].innerText.toLowerCase();
 
-        else if(cards[i].classList.contains(type)){
+        if(text.includes(input)){
           cards[i].style.display = "block";
         }
 
