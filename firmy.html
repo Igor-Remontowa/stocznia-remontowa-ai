@@ -140,57 +140,15 @@
     GDAŃSKA STOCZNIA REMONTOWA • BAZA FIRM KOOPERACYJNYCH
   </footer>
 
+  <!-- BAZA FIRM -->
+  <script src="companies.js"></script>
+
+  <!-- SILNIK WYSZUKIWARKI -->
   <script>
-
-    // 🚢 BAZA FIRM
-
-    const companies = [
-
-      {
-        name: "DELTA MARINE",
-        services: "Spawanie TIG, MIG, ślusarka, aluminium, rurociągi",
-        contact: "Jan Kowalski",
-        phone: "+48 500 000 001",
-        email: "delta@marine.pl",
-        tags: ["spawanie","TIG","MIG","aluminium","ślusarka","rurociągi"]
-      },
-
-      {
-        name: "BALTIC ENGINEERING",
-        services: "HVAC, wentylacja, klimatyzacja, chłodnictwo",
-        contact: "Piotr Nowak",
-        phone: "+48 500 000 002",
-        email: "hvac@baltic.pl",
-        tags: ["HVAC","wentylacja","klimatyzacja","chłodnictwo"]
-      },
-
-      {
-        name: "SEA TECH SERVICE",
-        services: "Automatyka, elektryka, systemy okrętowe",
-        contact: "Adam Wiśniewski",
-        phone: "+48 500 000 003",
-        email: "service@seatech.pl",
-        tags: ["automatyka","elektryka","okrętowe","systemy"]
-      },
-
-      {
-        name: "NORD SHIP REPAIR",
-        services: "Malowanie, piaskowanie, konserwacja",
-        contact: "Marek Lewandowski",
-        phone: "+48 500 000 004",
-        email: "repair@nordship.pl",
-        tags: ["malowanie","piaskowanie","konserwacja"]
-      }
-
-    ];
-
-    // 🚢 ELEMENTY
 
     const searchInput = document.getElementById("searchInput");
     const resultsContainer = document.getElementById("resultsContainer");
     const emptyMessage = document.getElementById("emptyMessage");
-
-    // 🚢 WYSZUKIWANIE
 
     searchInput.addEventListener("keyup", function(){
 
@@ -213,6 +171,7 @@
           ${company.name}
           ${company.services}
           ${company.contact}
+          ${company.phone}
           ${company.email}
           ${company.tags.join(" ")}
         `.toLowerCase();
@@ -249,37 +208,39 @@
           <div class="section">
             <div class="label">Zakres prac</div>
             <div class="value">
-              ${company.services}
+              ${company.services || "-"}
             </div>
           </div>
 
           <div class="section">
             <div class="label">Kontakt</div>
             <div class="value">
-              ${company.contact}
+              ${company.contact || "-"}
             </div>
           </div>
 
           <div class="section">
             <div class="label">Telefon</div>
             <div class="value">
-              ${company.phone}
+              ${company.phone || "-"}
             </div>
           </div>
 
           <div class="section">
             <div class="label">E-mail</div>
             <div class="value">
-              ${company.email}
+              ${company.email || "-"}
             </div>
           </div>
 
           <div class="section">
             <div class="label">Tagi</div>
 
-            ${company.tags.map(tag => `
-              <span class="tag">${tag}</span>
-            `).join("")}
+            ${
+              company.tags.map(tag => `
+                <span class="tag">${tag}</span>
+              `).join("")
+            }
 
           </div>
 
