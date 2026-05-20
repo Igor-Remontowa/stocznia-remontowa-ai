@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant</title>
+
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 300px;
+      background: #1e293b;
+      color: white;
+      border: none;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #output {
+      margin-top: 30px;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🤖 AI Assistant</h1>
+
+<textarea id="emailInput" placeholder="Wklej mail tutaj..."></textarea>
+
+<button onclick="generatePrompt()">
+  Generuj analizę
+</button>
+
+<div id="output"></div>
+
+<script>
+
+function generatePrompt() {
+
+  const email = document.getElementById('emailInput').value;
+
+  const prompt = `
+Przeanalizuj poniższego maila ze środowiska stoczniowego.
+
+Wykonaj:
+
+1. Tłumaczenie na polski
+2. Krótkie podsumowanie
+3. Wyciągnij zakresy prac
+4. Określ pilność
+5. Wypisz wymagania
+6. Popraw stylistyke
+7. Zaproponuj typy firm wykonawczych
+8. Przygotuj gotowe maile ofertowe
+
+MAIL:
+
+${email}
+`;
+
+  document.getElementById('output').innerText = prompt;
+}
+
+</script>
+
+</body>
+</html>
