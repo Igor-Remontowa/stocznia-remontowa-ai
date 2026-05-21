@@ -1,258 +1,301 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FIRMY KOOPERACYJNE</title>
+<title>FIRMY KOOPERACYJNE</title>
 
-  <style>
+<style>
 
-    body{
-      margin:0;
-      padding:40px;
-      background:#0f172a;
-      color:white;
-      font-family:Arial,sans-serif;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    h1{
-      text-align:center;
-      color:#38bdf8;
-      margin-bottom:40px;
-      font-size:42px;
-    }
+body{
+  margin:0;
+  padding:40px;
+  background:#0f172a;
+  color:white;
+  font-family:Arial,sans-serif;
+}
 
-    .search-container{
-      max-width:1000px;
-      margin:auto;
-      margin-bottom:40px;
-    }
+h1{
+  text-align:center;
+  color:#38bdf8;
+  margin-bottom:40px;
+  font-size:42px;
+}
 
-    #searchInput{
-      width:100%;
-      padding:22px;
-      border:none;
-      border-radius:18px;
-      background:#1e293b;
-      color:white;
-      font-size:20px;
-      outline:none;
-      border:1px solid #334155;
-      box-sizing:border-box;
-    }
+.search-container{
+  max-width:1000px;
+  margin:auto;
+  margin-bottom:40px;
+}
 
-    #searchInput:focus{
-      border-color:#38bdf8;
-    }
+#searchInput{
+  width:100%;
+  padding:22px;
+  border:none;
+  border-radius:18px;
+  background:#1e293b;
+  color:white;
+  font-size:20px;
+  outline:none;
+  border:1px solid #334155;
+}
 
-    .results{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-    }
+#searchInput:focus{
+  border-color:#38bdf8;
+}
 
-    .card{
-      background:#1e293b;
-      border-radius:18px;
-      padding:25px;
-      border:1px solid #334155;
-      transition:0.2s;
-    }
+.results{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
 
-    .card:hover{
-      border-color:#38bdf8;
-      transform:translateY(-3px);
-    }
+.card{
+  background:#1e293b;
+  border-radius:18px;
+  padding:25px;
+  border:1px solid #334155;
+  transition:0.2s;
+}
 
-    .company{
-      color:#38bdf8;
-      font-size:28px;
-      font-weight:bold;
-      margin-bottom:20px;
-    }
+.card:hover{
+  border-color:#38bdf8;
+  transform:translateY(-3px);
+}
 
-    .section{
-      margin-bottom:14px;
-    }
+.company{
+  color:#38bdf8;
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
 
-    .label{
-      color:#94a3b8;
-      font-size:13px;
-      margin-bottom:4px;
-    }
+.section{
+  margin-bottom:16px;
+}
 
-    .value{
-      font-size:15px;
-      line-height:1.6;
-    }
+.label{
+  color:#94a3b8;
+  font-size:13px;
+  margin-bottom:5px;
+}
 
-    .tag{
-      display:inline-block;
-      background:#0f172a;
-      border:1px solid #334155;
-      border-radius:8px;
-      padding:5px 10px;
-      margin:4px;
-      font-size:12px;
-    }
+.value{
+  font-size:15px;
+  line-height:1.7;
+}
 
-    .empty{
-      text-align:center;
-      color:#64748b;
-      margin-top:80px;
-      font-size:18px;
-    }
+.value a{
+  color:#38bdf8;
+  text-decoration:none;
+}
 
-    footer{
-      text-align:center;
-      margin-top:60px;
-      color:#64748b;
-      font-size:12px;
-    }
+.value a:hover{
+  text-decoration:underline;
+}
 
-  </style>
+.tags{
+  margin-top:5px;
+}
+
+.tag{
+  display:inline-block;
+  background:#0f172a;
+  border:1px solid #334155;
+  border-radius:8px;
+  padding:6px 10px;
+  margin:4px;
+  font-size:12px;
+}
+
+.empty{
+  text-align:center;
+  color:#64748b;
+  margin-top:80px;
+  font-size:18px;
+}
+
+footer{
+  text-align:center;
+  margin-top:60px;
+  color:#64748b;
+  font-size:12px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <h1>🚢 FIRMY KOOPERACYJNE</h1>
+<h1>🚢 FIRMY KOOPERACYJNE</h1>
 
-  <div class="search-container">
+<div class="search-container">
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Wpisz nazwę firmy, usługę, specjalizację..."
-    >
+<input
+type="text"
+id="searchInput"
+placeholder="Wpisz nazwę firmy, usługę, miasto, telefon, e-mail..."
+>
 
-  </div>
+</div>
 
-  <div class="empty" id="emptyMessage">
-    Wpisz frazę aby rozpocząć wyszukiwanie
-  </div>
+<div class="empty" id="emptyMessage">
+Wpisz frazę aby rozpocząć wyszukiwanie
+</div>
 
-  <div class="results" id="resultsContainer"></div>
+<div class="results" id="resultsContainer"></div>
 
-  <footer>
-    GDAŃSKA STOCZNIA REMONTOWA • BAZA FIRM KOOPERACYJNYCH
-  </footer>
+<footer>
+GDAŃSKA STOCZNIA REMONTOWA • BAZA FIRM KOOPERACYJNYCH
+</footer>
 
-  <!-- BAZA FIRM -->
-  <script src="companies.js"></script>
+<script src="companies.js"></script>
 
-  <!-- SILNIK WYSZUKIWARKI -->
-  <script>
+<script>
 
-    const searchInput = document.getElementById("searchInput");
-    const resultsContainer = document.getElementById("resultsContainer");
-    const emptyMessage = document.getElementById("emptyMessage");
+const searchInput = document.getElementById("searchInput");
+const resultsContainer = document.getElementById("resultsContainer");
+const emptyMessage = document.getElementById("emptyMessage");
 
-    searchInput.addEventListener("keyup", function(){
+searchInput.addEventListener("input", function(){
 
-      const query = searchInput.value.toLowerCase().trim();
+  const query = searchInput.value.toLowerCase().trim();
 
-      resultsContainer.innerHTML = "";
+  resultsContainer.innerHTML = "";
 
-      if(query === ""){
+  if(query === ""){
 
-        emptyMessage.style.display = "block";
-        return;
+    emptyMessage.style.display = "block";
+    return;
 
-      }
+  }
 
-      emptyMessage.style.display = "none";
+  emptyMessage.style.display = "none";
 
-      const filtered = companies.filter(company => {
+  const filtered = companies.filter(company => {
 
-        const fullText = `
-          ${company.name}
-          ${company.services}
-          ${company.contact}
-          ${company.phone}
-          ${company.email}
-          ${company.tags.join(" ")}
-        `.toLowerCase();
+    const fullText = `
+      ${company.name}
+      ${company.services}
+      ${company.location}
+      ${company.contact}
+      ${company.phone}
+      ${company.email}
+      ${company.website}
+      ${company.tags.join(" ")}
+    `.toLowerCase();
 
-        return fullText.includes(query);
+    return fullText.includes(query);
 
-      });
+  });
 
-      if(filtered.length === 0){
+  if(filtered.length === 0){
 
-        resultsContainer.innerHTML = `
-          <div class="empty">
-            Brak wyników dla:
-            <strong>${query}</strong>
-          </div>
-        `;
+    resultsContainer.innerHTML = `
+      <div class="empty">
+        Brak wyników dla:
+        <strong>${query}</strong>
+      </div>
+    `;
 
-        return;
+    return;
 
-      }
+  }
 
-      filtered.forEach(company => {
+  filtered.forEach(company => {
 
-        const card = document.createElement("div");
+    const card = document.createElement("div");
 
-        card.className = "card";
+    card.className = "card";
 
-        card.innerHTML = `
+    card.innerHTML = `
 
-          <div class="company">
-            ${company.name}
-          </div>
+      <div class="company">
+        ${company.name || "-"}
+      </div>
 
-          <div class="section">
-            <div class="label">Zakres prac</div>
-            <div class="value">
-              ${company.services || "-"}
-            </div>
-          </div>
+      <div class="section">
+        <div class="label">Zakres prac</div>
+        <div class="value">
+          ${company.services || "-"}
+        </div>
+      </div>
 
-          <div class="section">
-            <div class="label">Kontakt</div>
-            <div class="value">
-              ${company.contact || "-"}
-            </div>
-          </div>
+      <div class="section">
+        <div class="label">Siedziba</div>
+        <div class="value">
+          ${company.location || "-"}
+        </div>
+      </div>
 
-          <div class="section">
-            <div class="label">Telefon</div>
-            <div class="value">
-              ${company.phone || "-"}
-            </div>
-          </div>
+      <div class="section">
+        <div class="label">Osoba kontaktowa</div>
+        <div class="value">
+          ${company.contact || "-"}
+        </div>
+      </div>
 
-          <div class="section">
-            <div class="label">E-mail</div>
-            <div class="value">
-              ${company.email || "-"}
-            </div>
-          </div>
+      <div class="section">
+        <div class="label">Telefon</div>
+        <div class="value">
+          ${company.phone || "-"}
+        </div>
+      </div>
 
-          <div class="section">
-            <div class="label">Tagi</div>
+      <div class="section">
+        <div class="label">E-mail</div>
+        <div class="value">
+          ${
+            company.email
+            ? `<a href="mailto:${company.email}">${company.email}</a>`
+            : "-"
+          }
+        </div>
+      </div>
 
-            ${
-              company.tags.map(tag => `
-                <span class="tag">${tag}</span>
-              `).join("")
-            }
+      <div class="section">
+        <div class="label">Strona internetowa</div>
+        <div class="value">
+          ${
+            company.website
+            ? `<a href="${company.website}" target="_blank">${company.website}</a>`
+            : "-"
+          }
+        </div>
+      </div>
 
-          </div>
+      <div class="section">
 
-        `;
+        <div class="label">Tagi</div>
 
-        resultsContainer.appendChild(card);
+        <div class="tags">
 
-      });
+          ${
+            company.tags
+            .map(tag => `<span class="tag">${tag}</span>`)
+            .join("")
+          }
 
-    });
+        </div>
 
-  </script>
+      </div>
+
+    `;
+
+    resultsContainer.appendChild(card);
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
