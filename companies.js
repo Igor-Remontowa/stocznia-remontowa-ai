@@ -353,9 +353,9 @@ const companies = [
   {
     "name": "RES",
     "location": "GSR",
-    "contact": "",
-    "phone": "501534839",
-    "email": "W.Dabski@res.rh.pl",
+    "contact": "Robert Labuda",
+    "phone": "515384690",
+    "email": "R.Labuda@res.rh.pl",
     "website": "https://www.res.rh.pl/uslugi/",
     "services": "instalacje elektryczne; monitoring cctv; elektryka; ślusarka; spawanie; automatyka; system zużycia paliwa; ffco; wyłączniki; rozdzielnice",
     "tags": [
