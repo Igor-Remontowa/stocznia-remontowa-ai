@@ -337,6 +337,34 @@ Zaloguj
     </div>
 
   </footer>
+<script>
 
+function login(){
+
+const user = document.getElementById("login").value;
+const pass = document.getElementById("password").value;
+
+if(user === "admin" && pass === "remontowa2025"){
+
+document.getElementById("loginScreen").style.display = "none";
+
+sessionStorage.setItem("logged","true");
+
+}else{
+
+document.getElementById("error").innerText =
+"Nieprawidłowy login lub hasło";
+
+}
+
+}
+
+if(sessionStorage.getItem("logged") === "true"){
+
+document.getElementById("loginScreen").style.display = "none";
+
+}
+
+</script>
 </body>
 </html>
