@@ -420,7 +420,49 @@ if(sessionStorage.getItem("logged") === "true"){
 document.getElementById("loginScreen").style.display = "none";
 
 }
+function updateClock(){
 
+  const now = new Date();
+
+  document.getElementById("currentDate").innerHTML =
+    "📅 " + now.toLocaleDateString("pl-PL");
+
+  document.getElementById("currentTime").innerHTML =
+    "🕒 " + now.toLocaleTimeString("pl-PL");
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+async function loadTemperature(){
+
+  try{
+
+    const response =
+      await fetch("https://wttr.in/Gdansk?format=j1");
+
+    const data =
+      await response.json();
+
+    const temp =
+      data.current_condition[0].temp_C;
+
+    document.getElementById("temperature").innerHTML =
+      "🌡 " + temp + "°C";
+
+  }
+
+  catch(error){
+
+    document.getElementById("temperature").innerHTML =
+      "🌡 Brak danych";
+
+  }
+
+}
+
+loadTemperature();
 </script>
 </body>
 </html>
