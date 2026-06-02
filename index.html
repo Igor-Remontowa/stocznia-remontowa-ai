@@ -488,5 +488,12 @@ async function loadTemperature(){
 
 loadTemperature();
 </script>
+  function logout(){
+
+  sessionStorage.removeItem("logged");
+
+  document.getElementById("loginScreen").style.display = "flex";
+
+}
 </body>
 </html>
