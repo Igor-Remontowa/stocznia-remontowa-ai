@@ -139,6 +139,8 @@ button:hover{
 
 <input id="executionManager" placeholder="Kierownik wykonawstwa">
 
+<input id="offerDeadline" placeholder="Termin składania ofert">
+
 </div>
 
 </div>
@@ -203,6 +205,9 @@ document.getElementById("executionManager").value;
 const scope =
 document.getElementById("workScope").value;
 
+const deadline =
+document.getElementById("offerDeadline").value;
+
 const output =
 
 `ZAPYTANIE OFERTOWE
@@ -224,6 +229,9 @@ ${finance}
 
 Kierownik wykonawstwa:
 ${execution}
+
+Termin składania ofert:
+${deadline}
 
 -----------------------------------
 
