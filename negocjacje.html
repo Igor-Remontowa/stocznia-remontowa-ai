@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asystent Negocjacji - GSR AI</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:30px;
+    background:#021047;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:30px;
+}
+
+.section{
+    background:#1e293b;
+    border:1px solid #334155;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.section-title{
+    color:#38bdf8;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#0f172a;
+    color:white;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:120px;
+}
+
+button{
+    background:#38bdf8;
+    color:#021047;
+    border:none;
+    border-radius:12px;
+    padding:15px 25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.output{
+    background:#0f172a;
+    border-radius:12px;
+    padding:20px;
+    white-space:pre-wrap;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,td{
+    border:1px solid #334155;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#0f172a;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back">⬅ Powrót do portalu</a>
+
+<h1>🤝 ASYSTENT NEGOCJACJI</h1>
+
+<div class="section">
+
+<div class="section-title">
+Dane negocjacji
+</div>
+
+<div class="form-grid">
+
+<input id="company" placeholder="Firma">
+
+<input id="subject" placeholder="Przedmiot negocjacji">
+
+<input id="offer" type="number" placeholder="Oferta wykonawcy (PLN)">
+
+<input id="budget" type="number" placeholder="Budżet GSR (PLN)">
+
+<select id="category">
+<option>Automatyka</option>
+<option>Elektryka</option>
+<option>Mechanika</option>
+<option>Hydraulika</option>
+<option>Serwis</option>
+</select>
+
+</div>
+
+<br>
+
+<textarea id="notes" placeholder="Uwagi, historia współpracy, problemy, atuty wykonawcy..."></textarea>
+
+<br><br>
+
+<button onclick="analyzeNegotiation()">
+📊 ANALIZUJ NEGOCJACJE
+</button>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Tabela rabatów
+</div>
+
+<div id="discountTable"></div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+Analiza i strategia
+</div>
+
+<div id="analysis" class="output">
+Tutaj pojawi się analiza.
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function analyzeNegotiation(){
+
+const offer =
+parseFloat(document.getElementById("offer").value);
+
+const budget =
+parseFloat(document.getElementById("budget").value);
+
+if(!offer || !budget){
+    alert("Podaj ofertę i budżet.");
+    return;
+}
+
+let table = `
+<table>
+<tr>
+<th>Rabat</th>
+<th>Cena</th>
+</tr>
+`;
+
+for(let i=0;i<=20;i+=5){
+
+let value =
+offer - (offer * i / 100);
+
+table += `
+<tr>
+<td>${i}%</td>
+<td>${value.toFixed(2)} PLN</td>
+</tr>
+`;
+}
+
+table += `</table>`;
+
+document.getElementById("discountTable").innerHTML = table;
+
+const difference =
+offer - budget;
+
+const neededDiscount =
+((difference / offer) * 100).toFixed(2);
+
+const target =
+(offer * 0.90).toFixed(2);
+
+const limit =
+(offer * 0.95).toFixed(2);
+
+document.getElementById("analysis").innerText =
+
+`PODSUMOWANIE
+
+Oferta wykonawcy:
+${offer.toFixed(2)} PLN
+
+Budżet GSR:
+${budget.toFixed(2)} PLN
+
+Różnica:
+${difference.toFixed(2)} PLN
+
+Potrzebny rabat:
+${neededDiscount}%
+
+
+REKOMENDOWANA STRATEGIA
+
+Cena docelowa:
+${target} PLN
+
+Cena graniczna:
+${limit} PLN
+
+
+ARGUMENTY NEGOCJACYJNE
+
+• Długoterminowa współpraca.
+
+• Możliwość kolejnych zleceń.
+
+• Terminowa realizacja płatności.
+
+• Znajomość specyfiki jednostki.
+
+• Możliwość rozszerzenia zakresu prac.
+
+• Ograniczenie kosztów mobilizacji.
+
+
+CZERWONE FLAGI
+
+• Zweryfikować dodatkowe koszty.
+
+• Zweryfikować czas realizacji.
+
+• Potwierdzić dostępność materiałów.`;
+
+}
+
+</script>
+
+</body>
+</html>
