@@ -594,14 +594,19 @@ else if(user === "manager" &&
     "userRole",
     "manager"
   );
+document.getElementById("welcomeUser")
+  .innerHTML = "👋 Cześć Kierownik";
 
+document.getElementById("shipsTitle")
+  .innerHTML = "🚢 WSZYSTKIE STATKI";
+
+document.getElementById("managerCard")
+  .style.display = "flex";
 }
 else{
 
   document.getElementById("error").innerText =
     "Nieprawidłowy login lub hasło";
-
-}
 
 }
 
