@@ -593,6 +593,15 @@ if(sessionStorage.getItem("logged") === "true"){
 document.getElementById("loginScreen").style.display = "none";
 
 }
+  const role =
+sessionStorage.getItem("userRole");
+
+if(role === "manager"){
+
+  document.getElementById("managerCard")
+    .style.display = "flex";
+
+}
 function updateClock(){
 
   const now = new Date();
