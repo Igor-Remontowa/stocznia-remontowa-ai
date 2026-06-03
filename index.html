@@ -677,6 +677,7 @@ loadTemperature();
 function logout(){
 
   sessionStorage.removeItem("logged");
+  sessionStorage.removeItem("userRole");
 
   document.getElementById("loginScreen").style.display = "flex";
 
