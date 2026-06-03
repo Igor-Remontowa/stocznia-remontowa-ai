@@ -258,8 +258,9 @@ text-align:right;
     font-weight:700;
     margin-bottom:8px;
   ">
-    👋 Cześć Igor
-  </div>
+  <div id="welcomeUser">
+  👋 Cześć Igor
+</div>
 
   <div id="currentDate" style="
     color:#94a3b8;
@@ -303,8 +304,9 @@ text-align:right;
     font-weight:700;
     margin-bottom:10px;
   ">
-    🚢 MOJE STATKI
-  </div>
+    <div id="shipsTitle">
+  🚢 MOJE STATKI
+</div>
 
   <div style="
     color:#22c55e;
@@ -615,6 +617,11 @@ if(role === "manager"){
 
   document.getElementById("managerCard")
     .style.display = "flex";
+  document.getElementById("welcomeUser")
+  .innerHTML = "👋 Cześć Kierownik";
+
+document.getElementById("shipsTitle")
+  .innerHTML = "🚢 WSZYSTKIE STATKI";
 
 }
 function updateClock(){
