@@ -539,19 +539,50 @@ text-align:right;
 
 function login(){
 
-const user = document.getElementById("login").value;
-const pass = document.getElementById("password").value;
+const user =
+document.getElementById("login").value;
 
-if(user === "admin" && pass === "remontowa2025"){
+const pass =
+document.getElementById("password").value;
 
-document.getElementById("loginScreen").style.display = "none";
+if(user === "admin" &&
+   pass === "remontowa2025"){
 
-sessionStorage.setItem("logged","true");
+  document.getElementById("loginScreen")
+    .style.display = "none";
 
-}else{
+  sessionStorage.setItem(
+    "logged",
+    "true"
+  );
 
-document.getElementById("error").innerText =
-"Nieprawidłowy login lub hasło";
+  sessionStorage.setItem(
+    "userRole",
+    "user"
+  );
+
+}
+else if(user === "manager" &&
+        pass === "remontowa2025"){
+
+  document.getElementById("loginScreen")
+    .style.display = "none";
+
+  sessionStorage.setItem(
+    "logged",
+    "true"
+  );
+
+  sessionStorage.setItem(
+    "userRole",
+    "manager"
+  );
+
+}
+else{
+
+  document.getElementById("error").innerText =
+    "Nieprawidłowy login lub hasło";
 
 }
 
