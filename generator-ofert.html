@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Generator Ofert - GSR AI</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:30px;
+    background:#021047;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.logo img{
+    max-width:350px;
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:30px;
+}
+
+.section{
+    background:#1e293b;
+    border:1px solid #334155;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:25px;
+}
+
+.section-title{
+    font-size:22px;
+    font-weight:bold;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#0f172a;
+    color:white;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:250px;
+    resize:vertical;
+}
+
+button{
+    background:#38bdf8;
+    color:#021047;
+    border:none;
+    border-radius:12px;
+    padding:15px 30px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.output{
+    background:#0f172a;
+    border-radius:12px;
+    padding:20px;
+    min-height:250px;
+    white-space:pre-wrap;
+}
+
+.back-button{
+    display:inline-block;
+    margin-bottom:20px;
+    color:white;
+    text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-button">
+⬅ Powrót do portalu
+</a>
+
+<div class="logo">
+<img src="logo.png" alt="Remontowa">
+</div>
+
+<h1>📄 GENERATOR OFERT</h1>
+
+<div class="section">
+
+<div class="section-title">
+🚢 Dane jednostki
+</div>
+
+<div class="form-grid">
+
+<input id="shipName" placeholder="Nazwa jednostki">
+
+<input id="entryDate" placeholder="Termin wejścia">
+
+<input id="exitDate" placeholder="Termin wyjścia">
+
+<input id="coordinator" placeholder="Koordynator">
+
+<input id="financeManager" placeholder="Kierownik finansowy">
+
+<input id="executionManager" placeholder="Kierownik wykonawstwa">
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+🛠 Zakres prac
+</div>
+
+<textarea id="workScope"
+placeholder="Wpisz zakres prac..."></textarea>
+
+</div>
+
+<div class="section">
+
+<button onclick="generateOffer()">
+📄 GENERUJ ZAPYTANIE
+</button>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+📋 Wygenerowane zapytanie
+</div>
+
+<div id="result" class="output">
+
+Tutaj pojawi się wygenerowane zapytanie.
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateOffer(){
+
+const ship =
+document.getElementById("shipName").value;
+
+const entry =
+document.getElementById("entryDate").value;
+
+const exit =
+document.getElementById("exitDate").value;
+
+const coordinator =
+document.getElementById("coordinator").value;
+
+const finance =
+document.getElementById("financeManager").value;
+
+const execution =
+document.getElementById("executionManager").value;
+
+const scope =
+document.getElementById("workScope").value;
+
+const output =
+
+`ZAPYTANIE OFERTOWE
+
+Jednostka:
+${ship}
+
+Termin wejścia:
+${entry}
+
+Termin wyjścia:
+${exit}
+
+Koordynator:
+${coordinator}
+
+Kierownik finansowy:
+${finance}
+
+Kierownik wykonawstwa:
+${execution}
+
+-----------------------------------
+
+ZAKRES PRAC
+
+${scope}
+
+-----------------------------------
+
+Prosimy o przedstawienie oferty
+na wykonanie powyższych prac.
+
+Gdańska Stocznia Remontowa S.A.
+`;
+
+document.getElementById("result").innerText =
+output;
+
+}
+
+</script>
+
+</body>
+</html>
