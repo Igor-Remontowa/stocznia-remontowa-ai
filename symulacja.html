@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Symulator Negocjacji</title>
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+    font-family:Segoe UI,sans-serif;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+.card{
+    background:#1e293b;
+    border:1px solid #334155;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+select,input{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:#0f172a;
+    color:white;
+}
+
+button{
+    background:#38bdf8;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#chat{
+    height:450px;
+    overflow-y:auto;
+    background:#0f172a;
+    border-radius:10px;
+    padding:15px;
+    margin-top:20px;
+}
+
+.message{
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:10px;
+}
+
+.user{
+    background:#1e40af;
+}
+
+.ai{
+    background:#374151;
+}
+
+#chatSection{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎭 SYMULATOR NEGOCJACJI</h1>
+
+<div class="card">
+
+<label>Firma</label>
+<select id="company">
+<option>BALTIC SERVICE</option>
+<option>STAREX</option>
+<option>NOVA SILVER</option>
+<option>MARITIME TECH</option>
+</select>
+
+<label>Typ negocjacji</label>
+<select id="type">
+<option>Cena</option>
+<option>Dostępność ludzi</option>
+<option>Termin realizacji</option>
+<option>Zakres prac</option>
+</select>
+
+<label>Poziom trudności</label>
+<select id="difficulty">
+<option>Łatwy</option>
+<option>Średni</option>
+<option>Trudny</option>
+</select>
+
+<button onclick="startSimulation()">
+🚀 Rozpocznij negocjacje
+</button>
+
+</div>
+
+<div id="chatSection">
+
+<div id="chat"></div>
+
+<div class="card">
+
+<input
+id="userInput"
+placeholder="Wpisz swoją odpowiedź..."
+>
+
+<button onclick="sendMessage()">
+Wyślij
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let round = 0;
+
+const hardReplies = [
+
+"Dziękujemy za wiadomość. Obecnie nie przewidujemy możliwości obniżenia ceny.",
+
+"Rozumiemy Państwa stanowisko, jednak nasze stawki są już bardzo konkurencyjne.",
+
+"Przy obecnych kosztach materiałów nie możemy zaoferować dodatkowego rabatu.",
+
+"Jaką korzyść miałaby nasza firma z dalszego obniżenia ceny?",
+
+"Możemy rozważyć niewielkie ustępstwo przy większym zakresie prac.",
+
+"To interesująca propozycja. Czy planują Państwo kolejne projekty?",
+
+"W takim przypadku moglibyśmy przeanalizować możliwość rabatu.",
+
+"Po konsultacji z zarządem możemy zaproponować dodatkowe 3% rabatu.",
+
+"To nasza ostateczna propozycja cenowa.",
+
+"Dziękujemy za negocjacje. Liczymy na dalszą współpracę."
+
+];
+
+const mediumReplies = [
+
+"Rozumiemy potrzebę optymalizacji kosztów.",
+
+"Przy większym zakresie prac możemy rozważyć korektę ceny.",
+
+"Jakiego poziomu rabatu Państwo oczekują?",
+
+"Możemy przeanalizować możliwość obniżki.",
+
+"To rozsądna propozycja.",
+
+"Jesteśmy otwarci na dalsze rozmowy.",
+
+"Możemy zaproponować 5% rabatu.",
+
+"Dziękujemy za konstruktywną rozmowę."
+
+];
+
+const easyReplies = [
+
+"Jesteśmy otwarci na negocjacje.",
+
+"Jakie warunki Państwa interesują?",
+
+"Możemy rozważyć obniżenie ceny.",
+
+"To bardzo ciekawa propozycja.",
+
+"Przy dłuższej współpracy możemy zaoferować rabat.",
+
+"Zgadzamy się na przedstawione warunki.",
+
+"Dziękujemy za rozmowę."
+
+];
+
+function startSimulation(){
+
+document.getElementById("chatSection")
+.style.display = "block";
+
+const company =
+document.getElementById("company").value;
+
+document.getElementById("chat").innerHTML = `
+
+<div class="message ai">
+👨‍💼 ${company}<br><br>
+
+Dzień dobry.
+
+Przesłaliśmy ofertę na kwotę
+187 000 PLN netto.
+
+Oferta została przygotowana
+na bazie aktualnych kosztów
+i nie przewidujemy możliwości
+jej obniżenia.
+</div>
+
+`;
+
+round = 0;
+
+}
+
+function sendMessage(){
+
+const input =
+document.getElementById("userInput");
+
+const text = input.value;
+
+if(text.trim() === "")
+return;
+
+const chat =
+document.getElementById("chat");
+
+chat.innerHTML += `
+<div class="message user">
+🧑 ${text}
+</div>
+`;
+
+let difficulty =
+document.getElementById("difficulty").value;
+
+let reply = "";
+
+if(difficulty === "Łatwy"){
+reply =
+easyReplies[
+Math.min(round,easyReplies.length-1)
+];
+}
+
+if(difficulty === "Średni"){
+reply =
+mediumReplies[
+Math.min(round,mediumReplies.length-1)
+];
+}
+
+if(difficulty === "Trudny"){
+reply =
+hardReplies[
+Math.min(round,hardReplies.length-1)
+];
+}
+
+setTimeout(()=>{
+
+chat.innerHTML += `
+<div class="message ai">
+👨‍💼 ${reply}
+</div>
+`;
+
+chat.scrollTop =
+chat.scrollHeight;
+
+},1000);
+
+round++;
+
+if(round === 10){
+
+setTimeout(()=>{
+
+chat.innerHTML += `
+<div class="message ai">
+
+📊 RAPORT KOŃCOWY
+
+Ocena negocjacji: 8/10
+
+✔ Dobra argumentacja
+
+✔ Budowanie relacji
+
+✔ Aktywne prowadzenie rozmowy
+
+⚠ Można było mocniej negocjować cenę
+
+💰 Uzyskany rabat:
+5%
+
+</div>
+`;
+
+chat.scrollTop =
+chat.scrollHeight;
+
+},2000);
+
+}
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
