@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Przygotowanie Spotkań</title>
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+    font-family:Segoe UI,sans-serif;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    color:#38bdf8;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #334155;
+}
+
+input, textarea{
+
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:20px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#0f172a;
+    color:white;
+}
+
+button{
+
+    background:#38bdf8;
+    border:none;
+    padding:14px 25px;
+    border-radius:10px;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#result{
+
+    margin-top:30px;
+
+    background:#1e293b;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    display:none;
+}
+
+.section-title{
+
+    color:#38bdf8;
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📋 PRZYGOTOWANIE SPOTKAŃ</h1>
+
+<div class="card">
+
+<label>🏢 Firma</label>
+<input id="company">
+
+<label>🚢 Statek</label>
+<input id="ship">
+
+<label>🎯 Cel spotkania</label>
+<textarea id="goal" rows="5"></textarea>
+
+<button onclick="prepareMeeting()">
+🚀 Przygotuj spotkanie
+</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function prepareMeeting(){
+
+const company =
+document.getElementById("company").value;
+
+const ship =
+document.getElementById("ship").value;
+
+const goal =
+document.getElementById("goal").value;
+
+document.getElementById("result").style.display = "block";
+
+document.getElementById("result").innerHTML = `
+
+<div class="section-title">
+🏢 Firma
+</div>
+
+${company}
+
+<div class="section-title">
+🚢 Statek
+</div>
+
+${ship}
+
+<div class="section-title">
+🎯 Cel spotkania
+</div>
+
+${goal}
+
+<div class="section-title">
+❓ Pytania do zadania
+</div>
+
+<ul>
+<li>Jaka jest dostępność pracowników?</li>
+<li>Jak szybko możecie rozpocząć prace?</li>
+<li>Czy przewidujecie ryzyka dla projektu?</li>
+<li>Jakie są obecne stawki?</li>
+<li>Czy możliwe są rabaty przy większym zakresie?</li>
+</ul>
+
+<div class="section-title">
+⚠️ Potencjalne ryzyka
+</div>
+
+<ul>
+<li>Brak dostępnych ludzi</li>
+<li>Wzrost kosztów</li>
+<li>Opóźnienia realizacji</li>
+</ul>
+
+<div class="section-title">
+💡 Strategia negocjacyjna
+</div>
+
+<ul>
+<li>Najpierw omówić zakres prac</li>
+<li>Potwierdzić dostępność zasobów</li>
+<li>Dopiero później negocjować stawki</li>
+<li>Podkreślić możliwość dalszej współpracy</li>
+</ul>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
