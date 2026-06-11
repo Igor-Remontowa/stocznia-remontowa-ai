@@ -13,13 +13,22 @@
     }
 
     body{
-      margin:0;
-      padding:40px;
-      background:#0b1430;
-      color:white;
-      font-family:Arial,sans-serif;
-      min-height:100vh;
-    }
+
+    background:
+    linear-gradient(
+        rgba(5,15,40,0.78),
+        rgba(5,15,40,0.78)
+    ),
+    url('bg-map.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+
+}
 
     .header{
       text-align:center;
@@ -47,16 +56,15 @@
       gap:22px;
     }
 
-    .card{
-      background:#1e293b;
-      border:1px solid #334155;
-      border-radius:18px;
-      padding:18px;
-      min-height:105px;
-      transition:0.25s ease;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+   .card{
+
+    background:rgba(30,41,59,0.88);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+
     }
 
     .card:hover{
