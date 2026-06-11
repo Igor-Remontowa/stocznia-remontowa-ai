@@ -35,11 +35,14 @@
       margin-bottom:50px;
     }
 
-    .header img{
-      width:100%;
-      max-width:420px;
-      margin-bottom:25px;
-    }
+   .header{
+
+      margin-right:290px;
+
+      text-align:center;
+
+      margin-bottom:50px;
+}
 
     
       h1{
@@ -49,12 +52,18 @@
    
 
     .container{
-      max-width:1000px;
-      margin:0 auto;
+      max-width:1100px;
+
+      margin-left:auto;
+      margin-right:290px;
+
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-    }
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(240px,1fr));
+
+      gap:18px;
+}
 
    .card{
 
@@ -272,11 +281,25 @@ Zaloguj
 
  <div class="header" style="position:relative;">
 
-   <div id="userPanel" style="
-position:absolute;
+ <div id="userPanel" style="
+position:fixed;
 right:0;
 top:0;
-text-align:right;
+
+width:260px;
+height:100vh;
+
+padding:25px;
+
+background:rgba(15,23,42,0.95);
+
+border-left:1px solid rgba(255,255,255,0.08);
+
+overflow-y:auto;
+
+text-align:left;
+
+z-index:100;
 ">
 
   <div style="
