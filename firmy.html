@@ -316,6 +316,27 @@ searchInput.addEventListener("input", function(){
 
       </div>
 
+      <div style="text-align:right;">
+
+<a
+class="details-button"
+href="${
+  company.name.toLowerCase() === "res"
+  ? "firma-res.html"
+  : "#"
+}"
+${
+  company.name.toLowerCase() !== "res"
+  ? 'onclick="alert(\'Karta firmy jest w przygotowaniu.\');return false;"'
+  : ""
+}>
+
+📋 Szczegóły współpracy
+
+</a>
+
+</div>
+
     `;
 
     resultsContainer.appendChild(card);
