@@ -844,20 +844,14 @@ async function loadTemperature(){
     const data =
       await response.json();
 
-    const current =
-      data.current_condition[0];
+   const current =
+  data.current_condition[0];
 
-    const temp =
-      current.temp_C;
+document.getElementById("temperature").innerHTML =
+  "🌡 " + current.temp_C + "°C";
 
-    const wind =
-      current.windspeedKmph;
-
-    document.getElementById("temperature").innerHTML =
-      "🌡 " + temp + "°C";
-
-    document.getElementById("wind").innerHTML =
-      "🌬 " + wind + " km/h";
+document.getElementById("wind").innerHTML =
+  JSON.stringify(current);
 
   }
 
