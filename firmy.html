@@ -272,7 +272,10 @@ searchInput.addEventListener("input", function(){
 
     card.innerHTML = `
 
-     ${company.logo ? `
+  
+    <div class="companyHeader">
+
+${company.logo ? `
 <img
     src="${company.logo}"
     class="companyLogo"
@@ -281,6 +284,8 @@ searchInput.addEventListener("input", function(){
 
 <div class="company">
     ${company.name || "-"}
+</div>
+
 </div>
 
       <div class="section">
