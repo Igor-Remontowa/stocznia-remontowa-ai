@@ -320,19 +320,7 @@ searchInput.addEventListener("input", function(){
 
 <a
 class="details-button"
-href="${
-  company.name.toLowerCase() === "res"
-    ? "firma-res.html"
-    : company.name.toLowerCase() === "htc"
-    ? "firma-htc.html"
-    : "#"
-}"
-${
-  company.name.toLowerCase() !== "res" &&
-  company.name.toLowerCase() !== "htc"
-    ? 'onclick="alert(\'Karta firmy jest w przygotowaniu.\');return false;"'
-    : ""
-}
+href="firma-${company.name.toLowerCase().replace(/\s+/g,'-')}.html">
 
 📋 Szczegóły współpracy
 
