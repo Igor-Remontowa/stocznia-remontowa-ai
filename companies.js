@@ -395,6 +395,7 @@ const companies = [
   },
   {
     "name": "HTC",
+    logo: "htc.png",
     "location": "GSR",
     "contact": "",
     "phone": "517735881",
