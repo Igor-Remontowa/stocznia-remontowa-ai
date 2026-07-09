@@ -422,6 +422,101 @@ href="firma-${company.name.toLowerCase().replace(/\s+/g,'-')}.html">
 
 });
 
+  document.getElementById("chatgptButton").onclick = function(){
+
+    const query = searchInput.value.trim();
+
+    if(query===""){
+
+        alert("Najpierw wpisz nazwę firmy lub usługę.");
+
+        return;
+
+    }
+
+const prompt =
+`Jesteś specjalistą ds. zakupów w Gdańskiej Stoczni Remontowej.
+
+Wyszukiwana firma lub zakres prac:
+
+${query}
+
+Wyszukaj w całej Polsce firmy o podobnym profilu działalności.
+
+Jeżeli użytkownik wpisał nazwę firmy (np. RES), najpierw przeanalizuj jej profil działalności, a następnie znajdź konkurencyjne firmy wykonujące podobne usługi.
+
+Podaj:
+
+• nazwę firmy
+• miasto
+• stronę internetową
+• zakres wykonywanych prac
+• doświadczenie w przemyśle morskim lub stoczniowym
+• liczbę pracowników (jeżeli dostępna)
+• certyfikaty
+• referencje
+• mocne strony
+• dane kontaktowe
+
+Na końcu przygotuj ranking 10 najlepszych firm w Polsce najbardziej zbliżonych profilem działalności do wyszukiwanej firmy lub usługi.
+
+Jeżeli to możliwe, uwzględnij firmy współpracujące ze stoczniami, przemysłem offshore, energetyką oraz przemysłem ciężkim.`;
+
+    window.open(
+"https://chatgpt.com/?q="+encodeURIComponent(prompt),
+"_blank"
+    );
+
+};
+
+  document.getElementById("geminiButton").onclick = function(){
+
+    const query = searchInput.value.trim();
+
+    if(query===""){
+
+        alert("Najpierw wpisz nazwą firmy lub usługę.");
+
+        return;
+
+    }
+    
+const prompt =
+`Jesteś specjalistą ds. zakupów w Gdańskiej Stoczni Remontowej.
+
+Wyszukiwana firma lub zakres prac:
+
+${query}
+
+Wyszukaj w całej Polsce firmy o podobnym profilu działalności.
+
+Jeżeli użytkownik wpisał nazwę firmy (np. RES), najpierw przeanalizuj jej profil działalności, a następnie znajdź konkurencyjne firmy wykonujące podobne usługi.
+
+Podaj:
+
+• nazwę firmy
+• miasto
+• stronę internetową
+• zakres wykonywanych prac
+• doświadczenie w przemyśle morskim lub stoczniowym
+• liczbę pracowników (jeżeli dostępna)
+• certyfikaty
+• referencje
+• mocne strony
+• dane kontaktowe
+
+Na końcu przygotuj ranking 10 najlepszych firm w Polsce najbardziej zbliżonych profilem działalności do wyszukiwanej firmy lub usługi.
+
+Jeżeli to możliwe, uwzględnij firmy współpracujące ze stoczniami, przemysłem offshore, energetyką oraz przemysłem ciężkim.`;
+
+       window.open(
+"https://gemini.google.com/app",
+"_blank"
+    );
+
+}; 
+  
+  
 </script>
 
 </body>
