@@ -352,6 +352,7 @@ const companies = [
   },
   {
     "name": "RES",
+    logo: "res.png",
     "location": "GSR",
     "contact": "Robert Labuda",
     "phone": "515384690",
