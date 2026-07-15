@@ -127,7 +127,19 @@ button:hover{
 
 <div class="form-grid">
 
-<input id="shipName" placeholder="Nazwa jednostki">
+<input
+  id="shipName"
+  type="text"
+  list="shipsList"
+  placeholder="Nazwa jednostki"
+>
+
+<datalist id="shipsList">
+  <option value="APOLLO">
+  <option value="WYGUS">
+  <option value="ENERGY GAL">
+  <option value="MAINSTAR 29">
+</datalist>
 
 <input id="entryDate" placeholder="Termin wejścia">
 
@@ -252,6 +264,83 @@ output;
 
 }
 
+const shipsData = {
+  "APOLLO": {
+    entryDate: "21.05.2026",
+    exitDate: "23.07.2026",
+    coordinator: "Igor Kozłowski",
+    financialManager: "Jan Kowalski",
+    executionManager: "Piotr Nowak",
+    offerDeadline: "15.05.2026"
+  },
+
+  "WYGUS": {
+    entryDate: "23.05.2026",
+    exitDate: "21.06.2026",
+    coordinator: "Igor Kozłowski",
+    financialManager: "Adam Wiśniewski",
+    executionManager: "Marek Zieliński",
+    offerDeadline: "16.05.2026"
+  },
+
+  "ENERGY GAL": {
+    entryDate: "05.06.2026",
+    exitDate: "29.08.2026",
+    coordinator: "Igor Kozłowski",
+    financialManager: "Tomasz Lewandowski",
+    executionManager: "Paweł Kamiński",
+    offerDeadline: "28.05.2026"
+  },
+
+  "MAINSTAR 29": {
+    entryDate: "14.07.2026",
+    exitDate: "20.09.2026",
+    coordinator: "Igor Kozłowski",
+    financialManager: "Krzysztof Wójcik",
+    executionManager: "Robert Mazur",
+    offerDeadline: "05.07.2026"
+  }
+};
+
+const shipNameInput = document.getElementById("shipName");
+
+shipNameInput.addEventListener("input", function () {
+  const shipName = this.value.trim().toUpperCase();
+  const ship = shipsData[shipName];
+
+  if (!ship) {
+    clearShipFields();
+    return;
+  }
+
+  document.getElementById("entryDate").value =
+    ship.entryDate;
+
+  document.getElementById("exitDate").value =
+    ship.exitDate;
+
+  document.getElementById("coordinator").value =
+    ship.coordinator;
+
+  document.getElementById("financialManager").value =
+    ship.financialManager;
+
+  document.getElementById("executionManager").value =
+    ship.executionManager;
+
+  document.getElementById("offerDeadline").value =
+    ship.offerDeadline;
+});
+
+function clearShipFields() {
+  document.getElementById("entryDate").value = "";
+  document.getElementById("exitDate").value = "";
+  document.getElementById("coordinator").value = "";
+  document.getElementById("financialManager").value = "";
+  document.getElementById("executionManager").value = "";
+  document.getElementById("offerDeadline").value = "";
+}
+    
 </script>
 
 </body>
